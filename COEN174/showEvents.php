@@ -21,11 +21,11 @@ function  bookDetails(){
 		if($row[1] == NULL)
 			echo "Author: N/A";
 		else
-			echo "<div class=\"container\" style=\"border: 1.5px solid; border-radius: 8px; padding: 0px;\"><h2 style=\"background-color: #b50043; color: white; padding: 15px; margin: 0px;\">Event Name:", "<font color='blue'> $row[1] </font></br>";
+			echo "<div class=\"container\" style=\"border: 1.5px solid; border-radius: 8px; padding: 0px;\"><h2 style=\"background-color: #b50043; color: white; padding: 15px; margin: 0px;\">Event Name:", " $row[1]";
 		if($row[0] == NULL)
 			echo "Title: N/A";
 		else
-            echo "<span style=\"float: right;\">EventId:", "<font color='blue'> $row[0] </font></span></h2></br>";
+            echo "<span style=\"float: right;\">EventId:", " $row[0] </span></h2></br>";
 		if($row[2] == NULL)
 			echo "Category: N/A";
 		else		
