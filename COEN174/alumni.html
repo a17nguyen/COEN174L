@@ -1,0 +1,164 @@
+<!-- http://wiki.helpme.engr.scu.edu/index.php/Webpage -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Events</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+	<h1>SCU Alumni Events</h1>
+	<p>A site for SCU alumni to organize events.</p>
+</div>
+
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create Event</button>
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Event</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/addEvents.php">
+    <div class="form-group">
+      <label for="eventname">Event Name:</label>
+      <input type="text" class="form-control" id="eventname" placeholder="Enter event name" name="eventname">
+    </div>
+    
+    <div class="form-group">
+      <label for="organizer">Organizer:</label>
+      <input type="text" class="form-control" id="organizer" placeholder="Enter Organizer Name" name="organizer">
+    </div>
+    
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter Location" name="location">
+            </div>
+    
+    <div class="form-group">
+        <label for="eventDate">Date: (MM/DD/YYYY)</label>
+        <input type="text" class="form-control" id="eventDate" placeholder="Enter Date of Event (MM/DD/YYYY)" name="eventDate">
+            </div> 
+    
+    <div class="form-group">
+        <label for="eventDescription">Event Description:</label>
+        <input type="text" class="form-control" id="eventDescription" placeholder="Enter Description of Event" name="eventDescription">
+            </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<div class="container">
+<a href="http://linux.students.engr.scu.edu/~anguyen/showEvents.php" class="btn btn-info btn-lg">Show Events</a>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Check In</button>
+	<div class="modal fade" id="myModal3" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Check In</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/checkIn.php">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    
+    <div class="form-group">
+      <label for="eventId">Event Id:</label>
+      <input type="text" class="form-control" id="eventId" placeholder="Enter Event Id" name="eventId">
+    </div>
+<div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname">
+    </div>
+    
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname">
+    </div>
+<div class="form-group">
+      <label for="gradyear">Graduation Year:</label>
+      <input type="text" class="form-control" id="gradyear" placeholder="Enter graduation year" name="gradyear">
+    </div>
+    
+    <div class="form-group">
+      <label for="major">Major:</label>
+      <input type="text" class="form-control" id="major" placeholder="Enter Major" name="major">
+    </div>
+ 
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<div class="container">
+<a href="http://linux.students.engr.scu.edu/~anguyen/showReports.php" class="btn btn-info btn-lg">Show Reports</a>
+</div>
+
+</body>
+</html>

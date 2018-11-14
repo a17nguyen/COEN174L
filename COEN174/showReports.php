@@ -1,7 +1,5 @@
 <?php
-
 echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
-
 showReports();
 function  showReports(){
 	$conn=oci_connect('anguyen','thuymai123', '//dbserver.engr.scu.edu/db11g');
@@ -9,7 +7,7 @@ function  showReports(){
 	     print "<br> connection failed:";       
         exit;
 	}		
-	$createTable = oci_parse($conn, "Create Table Temp(eventsId int, eventsName varchar(30))");
+	$createTable = oci_parse($conn, "Create Table Temp(eventsId int, eventsName varchar(50))");
 	oci_execute($createTable);
 	$query = oci_parse($conn, "insert into temp select checkin.eventId, Alumnievents.eventName from checkin inner join AlumniEvents on checkIn.eventId = Alumnievents.eventsId order by checkin.eventId");
 	// Execute the query
@@ -65,8 +63,7 @@ echo "</div>";
 $query4 = oci_parse($conn, "drop table temp");
 oci_execute($query4);
 
-
-	OCILogoff($conn);	
+	OCILogoff($conn);
 	
 	
 }
