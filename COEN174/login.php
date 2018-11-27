@@ -11,7 +11,7 @@ $user = $_GET['username'];
 	oci_execute($query3);
 	
   if (oci_fetch($query3)) {
-    header("Location:http://linux.students.engr.scu.edu/~anguyen/alumni.html");
+    header("Location:http://linux.students.engr.scu.edu/~anguyen/alumnioffice.html");
   }
   else {
 	header("Location:http://linux.students.engr.scu.edu/~anguyen/login.html");
