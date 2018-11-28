@@ -18,9 +18,9 @@ if($conn) {
 	oci_execute($query3);
 
   if (oci_execute($query3) == true) {
-$query4 = oci_parse($conn, "insert into alumnievents values(eventsId.nextVal, '$a', '$b', '$c', '$d','$e', '$f', date '$g', '$h')");
+$query4 = oci_parse($conn, "insert into pendingevents values(eventsId.nextVal, '$a', '$b', '$c', '$d','$e', '$f', date '$g', '$h')");
 oci_execute($query4);
-    header("Location:http://linux.students.engr.scu.edu/~anguyen/alumni.html");
+     header("Location:http://linux.students.engr.scu.edu/~anguyen/alumni.html");
   }
   else {
     echo "Unable to Add Event";

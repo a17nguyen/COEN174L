@@ -50,15 +50,10 @@ echo "<br>";
 		// or the column name as an associative array index to access the colum value
 		// Use the uppercase column names for the associative array indices
 		echo "<br>";
-		if($row[1] == NULL)
-			echo "Title: N/A";
-		else
-			echo "<tr><td><font color='blue'> $row[1] </font></td>";
-		if($row[0] == NULL)
-			echo "Author: N/A";
-		else
-			echo "<td><font color='blue'> $row[0] </font></td></tr>";
+		echo "<tr><td><font color='blue'> $row[1] </font></td>";
+		echo "<td><font color='blue'> $row[0] </font></td></tr>";
 	}
+
 echo "</div>";
 $query4 = oci_parse($conn, "drop table temp");
 oci_execute($query4);

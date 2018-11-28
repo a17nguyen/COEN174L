@@ -8,7 +8,7 @@ function  showEvents(){
         exit;
 	}		
 	//shows the title, author, category and highlights of the books	
-	$query = oci_parse($conn, "select * from alumnievents order by eventdate desc");
+	$query = oci_parse($conn, "select * from pendingevents order by eventdate asc");
 	// Execute the query
 	oci_execute($query);
 	while (($row = oci_fetch_array($query, OCI_BOTH)) != false) {		
@@ -20,6 +20,8 @@ function  showEvents(){
 0px;\">", " $row[1]";
         echo "<span style=\"float: right;\">EventId:", " $row[0] </span></h2></br>";
 		echo "<p style=\"padding: 0px 15px;\">Organizer Name:", "<font color='blue'> $row[2]  $row[3] </font></br>";
+		echo "Graduation Year:", "<font color='blue'> $row[4] </font></br>";
+		echo "Major:", "<font color='blue'> $row[5] </font></br>";
 		echo "Location:", "<font color='blue'> $row[6] </font></br>";
 		echo "Date:", "<font color='blue'> $row[7] </font></br>";
 		echo "Description:", "<font color='blue'> $row[8] </font></p></div></br>";

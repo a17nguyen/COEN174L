@@ -30,10 +30,24 @@ Create Table AlumniEvents(
 	eventsDescription varchar(1000)
 );
 
-Create Table EventsDescription(
-	eventsId int PRIMARY,
+Create Table pendingEvents(
+	eventsId int PRIMARY KEY,
+	eventName varchar(40),
+	firstname varchar(20),
+	lastname varchar(20),
+	gradyear int,
+	major varchar(50),
+	location varchar(40),
+	eventDate varchar(15),
 	eventsDescription varchar(1000)
 );
+
+Create Table Alumnioffice(
+	officeId int PRIMARY KEY,
+	firstname varchar(20),
+	lastname varchar(20)
+);
+
 
 Create Table CheckIn(
 	email varchar(50),
@@ -69,6 +83,21 @@ increment by 1
 minvalue 1
 maxvalue 10000;
 
+create sequence officeId
+start with 100
+increment by 1
+minvalue 100
+maxvalue 10000;
+
+insert into alumnioffice values(officeId.nextval, 'Andrew', 'Nguyen');
+insert into alumnioffice values(officeId.nextval, 'Daisuke', 'Kurita');
+insert into alumnioffice values(officeId.nextval, 'Miguel', 'Camblor');
+
+insert into alumnievents (eventsid, eventname, firstname, lastname, gradyear, location, eventdate, eventsdescription) select eventsid, eventname, firstname, lastname, gradyear, location, eventdate, eventsdescription from pendingevents where pendingevents.eventsid = 71;
+
+delete from alumnievents where eventsid = 71;
+
+
 
 select eventName, eventsId from Alumnievents where eventsId in (select eventId from checkin);
 insert into temp select checkin.eventId, Alumnievents.eventName from checkin inner join AlumniEvents on checkIn.eventId = Alumnievents.eventsId order by checkin.eventId;
@@ -79,15 +108,4 @@ insert into userpass values('scu', 'alumni');
 select username, pass from UserPass where userName = 'scu' and pass = 'alumni';
 select username from UserPass where userName = 'scu' and pass = 'nguyen';
 
-Create or Replace function logMe(
-username in UserPass.username%type,
-pass in UserPass.pass%type)
-return number is rownumbers integer;
-begin
-	select count(*) into rownumbers from userPass where userPass.userName = username and userPass.pass = pass;
-	return rownumbers;
-end logMe;
-/
-Show Errors
-
-logMe('scu', 'alumni');
+select eventid, firstname, lastname, gradyear, major from checkin order by eventid;
