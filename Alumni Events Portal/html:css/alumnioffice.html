@@ -1,0 +1,425 @@
+<!-- 
+Author: Daisuke Kurita
+This file contains the webpage for the alumni office. It includes all the actions from the general
+alumni page but includes reports, pending event approval, and event approval actions.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Events</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+	<h1>SCU Alumni Events</h1>
+	<p>A site for SCU alumni to organize events.</p>
+</div>
+<div class="container">
+<a href="http://linux.students.engr.scu.edu/~anguyen/showPending.php" class="btn btn-info btn-lg">Show Pending Events</a>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#approve">Approve Events</button>
+	<div class="modal fade" id="approve" role="dialog">
+		<div class="modal-dialog">
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Approve Event</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/approveEvents.php">
+    <div class="form-group">
+      <label for="eventid">Event Id:</label>
+      <input type="text" class="form-control" id="eventid" placeholder="Enter event id to approve" name="eventid">
+    </div>
+    
+    <div class="form-group">
+      <label for="office">Alumni Office Id:</label>
+      <input type="text" class="form-control" id="officeid" placeholder="Enter your office id" name="officeid">
+    </div>
+    <div class="form-group">
+      <label for="firstname">Your First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter your first name" name="firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Your Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter your last name" name="lastname">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#create">Create Event</button>
+	<div class="modal fade" id="create" role="dialog">
+		<div class="modal-dialog">
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Event</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/addEvents.php">
+    <div class="form-group">
+      <label for="eventname">Event Name:</label>
+      <input type="text" class="form-control" id="eventname" placeholder="Enter event name" name="eventname">
+    </div>
+    
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname">
+    </div>
+    <div class="form-group">
+      <label for="gradyear">Graduation Year:</label>
+      <input type="text" class="form-control" id="gradyear" placeholder="Enter graduation year" name="gradyear">
+    </div>
+    <div class="form-group">
+      <label for="major">Major(one):</label>
+      <input type="text" class="form-control" id="major" placeholder="Enter one major" name="major">
+    </div>
+    
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter Location" name="location">
+            </div>
+    
+    <div class="form-group">
+        <label for="eventDate">Date: (YYYY-MM-DD)</label>
+        <input type="text" class="form-control" id="eventDate" placeholder="Enter Date of Event (YYYY-MM-DD)" name="eventDate">
+            </div> 
+    
+    <div class="form-group">
+        <label for="eventDescription">Event Description:</label>
+        <input type="text" class="form-control" id="eventDescription" placeholder="Enter Description of Event" name="eventDescription">
+            </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal5">Edit Event</button>
+	<div class="modal fade" id="myModal5" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Event</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/editEvents.php">
+    <div class="form-group">
+      <label for="eventid">Event Id:</label>
+      <input type="text" class="form-control" id="eventid" placeholder="Enter the event id for the event you want to edit" name="eventid">
+    </div>
+	<div class="form-group">
+      <label for="eventname">New Event Name:</label>
+      <input type="text" class="form-control" id="eventname" placeholder="Enter the new event name" name="eventname">
+    </div>
+    
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter your first name" name="firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter your last name" name="lastname">
+    </div>
+    <div class="form-group">
+      <label for="gradyear">Graduation Year:</label>
+      <input type="text" class="form-control" id="gradyear" placeholder="Enter your graduation year" name="gradyear">
+    </div>
+    <div class="form-group">
+      <label for="major">Major(one):</label>
+      <input type="text" class="form-control" id="major" placeholder="Enter your major (one)" name="major">
+    </div>
+    
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter New Location" name="location">
+            </div>
+    
+    <div class="form-group">
+        <label for="eventDate">Date: (YYYY-MM-DD)</label>
+        <input type="text" class="form-control" id="eventDate" placeholder="Enter New Date of Event (YYYY-MM-DD)" name="eventDate">
+            </div> 
+    
+    <div class="form-group">
+        <label for="eventDescription">Event Description:</label>
+        <input type="text" class="form-control" id="eventDescription" placeholder="Enter New Description of Event" name="eventDescription">
+            </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal6">Remove/Cancel Event</button>
+	<div class="modal fade" id="myModal6" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Remove/Cancel Event</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/removeEvents.php">
+    <div class="form-group">
+      <label for="eventid">Event Id:</label>
+      <input type="text" class="form-control" id="eventid" placeholder="Enter the event id for the event you want to edit" name="eventid">
+    </div>
+
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter your first name" name="firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter your last name" name="lastname">
+    </div>
+    <div class="form-group">
+      <label for="gradyear">Graduation Year:</label>
+      <input type="text" class="form-control" id="gradyear" placeholder="Enter your graduation year" name="gradyear">
+    </div>
+    <div class="form-group">
+      <label for="major">Major(one):</label>
+      <input type="text" class="form-control" id="major" placeholder="Enter your major (one)" name="major">
+    </div>
+    
+    <div class="form-group">
+        <label for="eventDate">Date: (YYYY-MM-DD)</label>
+        <input type="text" class="form-control" id="eventDate" placeholder="Enter New Date of Event (YYYY-MM-DD)" name="eventDate">
+            </div> 
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<div class="container">
+<a href="http://linux.students.engr.scu.edu/~anguyen/showEvents.php" class="btn btn-info btn-lg">Show Events</a>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Check In</button>
+	<div class="modal fade" id="myModal3" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Check In</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/checkIn.php">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    
+    <div class="form-group">
+      <label for="eventId">Event Id:</label>
+      <input type="text" class="form-control" id="eventId" placeholder="Enter Event Id" name="eventId">
+    </div>
+<div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname">
+    </div>
+    
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname">
+    </div>
+<div class="form-group">
+      <label for="gradyear">Graduation Year:</label>
+      <input type="text" class="form-control" id="gradyear" placeholder="Enter graduation year" name="gradyear">
+    </div>
+    
+    <div class="form-group">
+      <label for="major">Major:</label>
+      <input type="text" class="form-control" id="major" placeholder="Enter Major" name="major">
+    </div>
+ 
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<div class="container">
+<a href="http://linux.students.engr.scu.edu/~anguyen/showReports.php" class="btn btn-info btn-lg">Show Reports</a>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#attendees">Show Attendees by EventId</button>
+	<div class="modal fade" id="attendees" role="dialog">
+		<div class="modal-dialog">
+
+
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Show Attendees by EventId</h4>
+        </div>
+
+        
+
+<!--<h2>Vertical (basic) form</h2>-->
+  <form action="http://linux.students.engr.scu.edu/~anguyen/showAttendees.php">
+    <div class="form-group">
+      <label for="eventId">Event Id:</label>
+      <input type="text" class="form-control" id="eventId" placeholder="Enter Event Id" name="eventId">
+    </div>
+ 
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<br>
+<br>
+<br>
+
+</body>
+</html>
